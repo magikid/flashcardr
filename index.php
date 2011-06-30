@@ -4,6 +4,6 @@
 include_once("controller/Controller.php");
 
 $controller = new Controller($user);
-$controller->invoke();
+$controller->go();
 
 ?>

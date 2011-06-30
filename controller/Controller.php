@@ -9,7 +9,7 @@ class Controller {
 		$this->model = new Model($user);
 	}
 
-	public function invoke()
+	public function go()
 	{
 		switch ($_GET['page']){
 
