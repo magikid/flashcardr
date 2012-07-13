@@ -32,16 +32,16 @@ def close_db_connection(request):
 
 
 def main(global_config, **settings):
-    """ This function returns a Pyramid WSGI application.
-    """
-    here = os.path.dirname(os.path.abspath(__file__))
-    settings['db'] = os.path.join(here, 'tasks.db')
+	""" This function returns a Pyramid WSGI application.
+	"""
+	here = os.path.dirname(os.path.abspath(__file__))
+	settings['db'] = os.path.join(here, 'tasks.db')
 	
-    config = Configurator(settings=settings)
+	config = Configurator(settings=settings)
 	config.add_route('foo', '/foo', view='myproject.views.foo', view_renderer='foo.mako')
-    config.add_static_view('static', os.path.join(here, 'static'))
-    config.add_route('decks', '/', view='deck_view', view_renderer='decks.mako')
-    config.add_route('cards', '/deck/{id}', view='card_view', view_renderer='cards.mako')
-    config.add_route('new', '/deck/{id}/new', view='new_view', view_renderer='new.mako')
-    config.scan()
-    return config.make_wsgi_app()
+	config.add_static_view('static', os.path.join(here, 'static'))
+	config.add_route('decks', '/', view='deck_view', view_renderer='decks.mako')
+	config.add_route('cards', '/deck/{id}', view='card_view', view_renderer='cards.mako')
+	config.add_route('new', '/deck/{id}/new', view='new_view', view_renderer='new.mako')
+	config.scan()
+	return config.make_wsgi_app()
