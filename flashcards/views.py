@@ -13,7 +13,7 @@ def card_view(request):
         cards = [dict(card_number=row[0], card_data=row[1]) for row in rs.fetchall()]
         return {'cards': cards}
 
-@view_config(route_name='new', renderer='new.make')
+@view_config(route_name='new', renderer='new.mako')
 def new_view(request):
         deck_id = int(request.matchdict['id'])
         if request.method == 'POST':

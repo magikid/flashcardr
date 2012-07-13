@@ -38,9 +38,10 @@ def main(global_config, **settings):
 	settings['db'] = os.path.join(here, 'tasks.db')
 	
 	config = Configurator(settings=settings)
+	config.add_renderer('.mako', 'pyramid.mako_templating.renderer_factory')
 	config.add_static_view('static', os.path.join(here, 'static'))
-	config.add_route('decks', '/', view_renderer='decks.mako')
-	config.add_route('cards', '/deck/{id}', view_renderer='cards.mako')
-	config.add_route('new', '/deck/{id}/new', view_renderer='new.mako')
+	config.add_route('decks', '/')
+	config.add_route('cards', '/deck/{id}')
+	config.add_route('new', '/deck/{id}/new')
 	config.scan()
 	return config.make_wsgi_app()
