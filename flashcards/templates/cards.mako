@@ -14,6 +14,6 @@
 	<li>There are no cards</li>
 %endif
 <li class="last">
-	<a href="${request.route_url('new")}">Add a new card</a>
+	<a href="${request.route_url('new')}">Add a new card</a>
 </li>
 </ul>
