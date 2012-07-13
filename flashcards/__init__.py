@@ -32,10 +32,10 @@ def close_db_connection(request):
 
 
 def main(global_config, **settings):
-    """ This function returns a Pyramid WSGI application.
-    """
-    here = os.path.dirname(os.path.abspath(__file__))
-    settings['db'] = os.path.join(here, 'tasks.db')
+	""" This function returns a Pyramid WSGI application.
+	"""
+	here = os.path.dirname(os.path.abspath(__file__))
+	settings['db'] = os.path.join(here, 'tasks.db')
 	
     config = Configurator(settings=settings)
     config.add_static_view('static', os.path.join(here, 'static'))
