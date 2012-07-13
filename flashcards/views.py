@@ -2,7 +2,7 @@ from pyramid.view import view_config
 	
 @view_config(route_name='decks', renderer='decks.mako')
 def deck_view(request):
-        rs = request.db.execute("select id,deck_title from decks where public = 1")
+        rs = request.db.execute("select id,deck_title from decks where ispublic = 1")
         decks = [dict(id=row[0], deck_title=row[1]) for row in rs.fetchall()]
         return {'decks': decks}
 
