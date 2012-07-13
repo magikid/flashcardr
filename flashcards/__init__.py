@@ -3,6 +3,7 @@ import logging
 import sqlite3
 
 from pyramid.config import Configurator
+from pyramid.session import UnencryptedCookieSessionFactoryConfig
 from pyramid.events import NewRequest
 from pyramid.events import subscriber
 from pyramid.events import ApplicationCreated
@@ -41,7 +42,10 @@ def main(global_config, **settings):
 	"""
 	settings['db'] = os.path.join(here, 'tasks.db')
 	
-	config = Configurator(settings=settings)
+	session_factory = UnencryptedCookieSessionFactoryConfig('itsaseekreet')
+
+	
+	config = Configurator(settings=settings, )
 	config.add_renderer('.mako', 'pyramid.mako_templating.renderer_factory')
 	config.add_static_view('static', os.path.join(here, 'static'))
 	config.add_route('decks', '/')
