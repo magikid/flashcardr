@@ -38,7 +38,6 @@ def main(global_config, **settings):
     settings['db'] = os.path.join(here, 'tasks.db')
 	
     config = Configurator(settings=settings)
-	config.add_route('foo', '/foo', view='myproject.views.foo', view_renderer='foo.mako')
     config.add_static_view('static', os.path.join(here, 'static'))
     config.add_route('decks', '/', view='deck_view', view_renderer='decks.mako')
     config.add_route('cards', '/deck/{id}', view='card_view', view_renderer='cards.mako')
