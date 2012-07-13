@@ -9,6 +9,11 @@ from pyramid.events import ApplicationCreated
 from pyramid.exceptions import NotFound
 from pyramid.httpexceptions import HTTPFound
 
+logging.basicConfig()
+log = logging.getLogger(__file__)
+
+here = os.path.dirname(os.path.abspath(__file__))
+
 @subscriber(ApplicationCreated)
 def application_created_subscriber(event):
 	log.warn('Initializing database...')
@@ -34,7 +39,6 @@ def close_db_connection(request):
 def main(global_config, **settings):
 	""" This function returns a Pyramid WSGI application.
 	"""
-	here = os.path.dirname(os.path.abspath(__file__))
 	settings['db'] = os.path.join(here, 'tasks.db')
 	
 	config = Configurator(settings=settings)
