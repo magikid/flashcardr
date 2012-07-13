@@ -45,7 +45,7 @@ def main(global_config, **settings):
 	session_factory = UnencryptedCookieSessionFactoryConfig('itsaseekreet')
 
 	
-	config = Configurator(settings=settings, )
+	config = Configurator(settings=settings, session_factory=session_factory)
 	config.add_renderer('.mako', 'pyramid.mako_templating.renderer_factory')
 	config.add_static_view('static', os.path.join(here, 'static'))
 	config.add_route('decks', '/')
