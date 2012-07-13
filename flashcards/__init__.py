@@ -35,7 +35,7 @@ def close_db_connection(request):
 def main(global_config, **settings):
     """ This function returns a Pyramid WSGI application.
     """
-	settings['db'] = os.path.join(here, 'tasks.db')
+    settings['db'] = os.path.join(here, 'tasks.db')
 	
     config = Configurator(settings=settings)
     config.add_route('decks', '/')
