@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*- 
-<%inherit file="layout.mako"/>
+<%inherit file="layout.mako" />
 <h1>Decks</h1>
 
 <ul id="decks">
