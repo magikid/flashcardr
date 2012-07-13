@@ -1,4 +1,3 @@
-
 import os
 import logging
 import sqlite3
@@ -39,10 +38,9 @@ def main(global_config, **settings):
     settings['db'] = os.path.join(here, 'tasks.db')
 	
     config = Configurator(settings=settings)
+    config.add_static_view('static', os.path.join(here, 'static'))
     config.add_route('decks', '/')
     config.add_route('cards', '/deck/{id}')
     config.add_route('new', '/deck/{id}/new')
-    config.add_static_view('static', os.path.join(here, 'static'))
     config.scan()
-
     return config.make_wsgi_app()
